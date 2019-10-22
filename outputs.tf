@@ -1,8 +1,8 @@
-output "wordpress_user" {
+output "wordpress_user_name" {
   value = "user"
 }
 
-output "wordpress_password" {
+output "wordpress_user_password" {
   value = data.kubernetes_secret.wordpress.data.wordpress-password
 }
 
