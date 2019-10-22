@@ -25,3 +25,15 @@ resource "kubernetes_cluster_role_binding" "tiller_cluster_role_binding" {
     namespace = "kube-system"
   }
 }
+
+data "kubernetes_service" "wordpress" {
+  metadata {
+    name = "wordpress"
+  }
+}
+
+data "kubernetes_secret" "wordpress" {
+  metadata {
+    name = "wordpress"
+  }
+}
