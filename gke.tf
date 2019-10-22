@@ -13,14 +13,17 @@ resource "google_compute_subnetwork" "default" {
 }
 
 data "google_container_engine_versions" "default" {
-  location       = var.zone
+  location       = var.node_locations.0
   version_prefix = var.kubernetes_version_prefix
 }
 
 resource "google_container_cluster" "default" {
-  name               = "tfpress"
-  location           = var.zone
-  initial_node_count = 3
+  name     = "tfpress"
+  location = var.node_locations.0
+  # node_locations is using same check as deprecated additional zones, which wrong
+  # tharefore there is this nasty hack of exluding first node_location
+  node_locations     = slice(var.node_locations, 1, length(var.node_locations))
+  initial_node_count = 2
   min_master_version = data.google_container_engine_versions.default.latest_master_version
   network            = google_compute_subnetwork.default.name
   subnetwork         = google_compute_subnetwork.default.name

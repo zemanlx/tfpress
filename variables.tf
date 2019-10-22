@@ -7,9 +7,9 @@ variable "region" {
   default     = "europe-west1"
 }
 
-variable "zone" {
-  description = "The zone of GCP region for Kubernetes deployment."
-  default     = "europe-west1-b"
+variable "node_locations" {
+  description = "The list of zones of GCP region for Kubernetes deployment."
+  default     = ["europe-west1-b", "europe-west1-c", "europe-west1-d"]
 }
 
 variable "network_name" {
