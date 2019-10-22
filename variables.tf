@@ -16,3 +16,8 @@ variable "network_name" {
   description = "The GCP network name for Kubernetes deployment."
   default     = "tfpress"
 }
+
+variable "kubernetes_version_prefix" {
+  description = "The GCP network name for Kubernetes deployment."
+  default     = "1.14."
+}

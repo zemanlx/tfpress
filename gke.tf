@@ -14,7 +14,7 @@ resource "google_compute_subnetwork" "default" {
 
 data "google_container_engine_versions" "default" {
   location       = var.zone
-  version_prefix = "1.13."
+  version_prefix = var.kubernetes_version_prefix
 }
 
 resource "google_container_cluster" "default" {
