@@ -3,6 +3,8 @@ resource "kubernetes_service_account" "tiller_service_account" {
     name      = "tiller"
     namespace = "kube-system"
   }
+
+  depends_on = [google_container_cluster.default]
 }
 
 resource "kubernetes_cluster_role_binding" "tiller_cluster_role_binding" {
@@ -21,7 +23,7 @@ resource "kubernetes_cluster_role_binding" "tiller_cluster_role_binding" {
   }
   subject {
     kind      = "ServiceAccount"
-    name      = "${kubernetes_service_account.tiller_service_account.metadata.0.name}"
+    name      = kubernetes_service_account.tiller_service_account.metadata.0.name
     namespace = "kube-system"
   }
 }
