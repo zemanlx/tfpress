@@ -30,10 +30,14 @@ data "kubernetes_service" "wordpress" {
   metadata {
     name = "wordpress"
   }
+
+  depends_on = [helm_release.wordpress]
 }
 
 data "kubernetes_secret" "wordpress" {
   metadata {
     name = "wordpress"
   }
+
+  depends_on = [helm_release.wordpress]
 }
