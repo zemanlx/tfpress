@@ -4,7 +4,7 @@ TFpress is an example of deployment WordPress into Google Kubernetes Engine usin
 
 ## Prerequisites
 
-- Installed `terraform` version `0.12.0` of higher. See installation [instructions](https://learn.hashicorp.com/terraform/getting-started/install.html).
+- Installed `terraform` version `0.12.0` or higher. See installation [instructions](https://learn.hashicorp.com/terraform/getting-started/install.html).
 - Installed and initialized [Google Cloud SDK](https://cloud.google.com/sdk/) for a project that will be used for deployment.
 
 ## Setup
@@ -35,7 +35,7 @@ Apply configuration
 terraform apply
 ```
 
-After successful deployment you should see access information like this
+After successful deployment, you should see access information like this
 
 ```ini
 Outputs:
